@@ -7,10 +7,10 @@
 
 double calculate_arithmetical_mean_of_nonextreme_elements(int* array, int size)
 {
-	int max = 0;
-	int min = 0;
+	int max = array[0];
+	int min = array[0];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 1; i < size; i++)
 	{
 		if (array[i] > max)
 		{
@@ -19,7 +19,7 @@ double calculate_arithmetical_mean_of_nonextreme_elements(int* array, int size)
 
 	}
 
-	for (int i = 0; i < size; i++)
+	for (int i = 1; i < size; i++)
 	{
 		if (array[i] < min)
 		{
@@ -41,5 +41,5 @@ double calculate_arithmetical_mean_of_nonextreme_elements(int* array, int size)
 	}
 
 
-	return count == 0 ? 0 : sum / count;
+	return count > 0 ? sum / count : 0;
 }
