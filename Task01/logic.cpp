@@ -6,12 +6,9 @@
 
 #include "logic.h"
 
-
-int sum_between_first_min_max(int* array, int size)
+int get_max_index(int* array, int size)
 {
-	
 	int maxIndex = 0;
-	int minIndex = 0;
 
 	for (int i = 0; i < size; i++)
 	{
@@ -22,6 +19,17 @@ int sum_between_first_min_max(int* array, int size)
 
 	}
 
+	return maxIndex;
+
+}
+
+int get_min_index(int* array, int size)
+{
+	
+
+	int minIndex = 0;
+
+
 	for (int i = 0; i < size; i++)
 	{
 		if (abs(array[i]) < abs(array[minIndex]))
@@ -29,6 +37,18 @@ int sum_between_first_min_max(int* array, int size)
 			minIndex = i;
 		}
 	}
+
+	return minIndex;
+
+}
+
+
+int sum_between_first_min_max(int* array, int size)
+{
+	
+	int maxIndex = get_max_index(array, size);
+	int minIndex = get_min_index(array, size);
+	
 
 	if (maxIndex > minIndex)
 	{

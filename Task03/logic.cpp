@@ -5,10 +5,10 @@
 // функцию, которая вычисляет среднее рифметическое элементов
 // вектора без учета минимального и максимального элементов.
 
-double calculate_arithmetical_mean_of_nonextreme_elements(int* array, int size)
+
+int get_max_element(int* array, int size)
 {
 	int max = array[0];
-	int min = array[0];
 
 	for (int i = 1; i < size; i++)
 	{
@@ -19,6 +19,14 @@ double calculate_arithmetical_mean_of_nonextreme_elements(int* array, int size)
 
 	}
 
+	return max;
+
+}
+
+int get_min_element(int* array, int size)
+{
+	int min = array[0];
+
 	for (int i = 1; i < size; i++)
 	{
 		if (array[i] < min)
@@ -27,10 +35,18 @@ double calculate_arithmetical_mean_of_nonextreme_elements(int* array, int size)
 		}
 	}
 
+	return min;
+
+}
+
+double calculate_arithmetical_mean_of_nonextreme_elements(int* array, int size)
+{
+	int max = get_max_element(array, size);
+	int min = get_min_element(array, size);
+
 	double sum = 0;
 	int count = 0;
 	
-
 	for (int i = 0; i < size; i++)
 	{
 		if (array[i] != max && array[i] != min)
